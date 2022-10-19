@@ -20,6 +20,6 @@ app.get("/", (req, res) => {
   res.send(`Hi Welcome to the product API`);
 });
 
-app.listen(8000, () => {
-  console.log("Server is running at port 8000");
+app.listen(3000, () => {
+  console.log("Server is running at port 3000");
 });
