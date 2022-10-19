@@ -35,4 +35,6 @@ router.delete("/delete-product/:id", deleteController.deleteProduct);
 router.post("/upload", upload.single("profile"), (req, res) => {
   console.log(req.file);
 });
+
+
 module.exports = router;
