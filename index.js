@@ -6,6 +6,7 @@ var cors = require("cors");
 app.use(cors());
 app.use(express.json());
 app.use(router);
+const port = process.env.PORT || 3000;
 mongoose.connect("mongodb://localhost:27017/productdb", {
   useNewUrlParser: true,
 });
@@ -20,6 +21,6 @@ app.get("/", (req, res) => {
   res.send(`Hi Welcome to the product API`);
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("Server is running at port 3000");
 });
