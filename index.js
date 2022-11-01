@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 app.use(router);
 const port = process.env.PORT || 4000;
-mongoose.connect("mongodb://0.0.0.0:27017/productdb", {
+mongoose.connect("mongodb://localhost:27017/productdb", {
   useNewUrlParser: true,
 });
 
