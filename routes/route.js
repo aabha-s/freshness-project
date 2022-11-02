@@ -30,9 +30,9 @@ router.get("/products", getController.getProducts);
 router.get("/product/:id", productController.particularProduct);
 router.patch("/update-product/:id", updateController.updateProduct);
 router.delete("/delete-product/:id", deleteController.deleteProduct);
-// router.post("/upload", upload.single("profile"), (req, res) => {
-//   console.log(req.file);
-// });
+router.post("/upload", upload.single("profile"), (req, res) => {
+  console.log(req.file);
+});
 
 // router.post("/uploadimg", uploader.single("file"), async (req, res) => {
 //   const upload = await cloudinary.v2.uploader.upload(req.file.path);
