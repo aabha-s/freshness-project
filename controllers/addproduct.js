@@ -6,7 +6,7 @@ exports.addProducts = async (request, response) => {
     await cloudinary.v2.uploader
       .upload(request.file.path)
       .then((result) => {
-        saveProduct(request, response, result.url)
+        saveProduct(request, response, result.url);
       })
       .catch((err) => {
         console.log(err);
@@ -19,15 +19,17 @@ exports.addProducts = async (request, response) => {
 function saveProduct(request, response, p_image) {
   const products = new productsSchema();
   products.p_title = request.body.p_title;
-  products.p_image = p_image ? p_image : '';
+  products.p_image = p_image ? p_image : "";
   products.p_description = request.body.p_description;
+  products.p_category = request.body.p_category;
   products.p_rating = request.body.p_rating;
   products.freshness = request.body.freshness;
   products.farm = request.body.farm;
   products.delivery = request.body.delivery;
   products.stock = request.body.stock;
   products.p_price = request.body.p_price;
-  products.save()
+  products
+    .save()
     .then((result) => {
       return response.status(201).json(result);
     })
@@ -35,6 +37,6 @@ function saveProduct(request, response, p_image) {
       console.log(err);
       return response
         .status(500)
-        .json({ message: "Oops!Something Went Wrong" });
+        .json({ message: "Something Went Wrong!" });
     });
 }

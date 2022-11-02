@@ -6,11 +6,16 @@ const UserSchema = new mongoose.Schema({
   p_image: {
     type: String,
   },
+  p_category: {
+    type: String,
+  },
   p_description: {
     type: String,
   },
   p_rating: {
     type: Number,
+    min: [1, "Rating cannot be below 1"],
+    max: [5, "Rating cannot be above 5"],
   },
   freshness: {
     type: String,
@@ -22,7 +27,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
   },
   stock: {
-    type: String,
+    type: Number,
   },
   p_price: {
     type: Number,
